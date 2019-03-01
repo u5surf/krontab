@@ -456,7 +456,7 @@ func uncomment(line string) string {
 func parseKronJob(line string, template string) KronJob {
 	slices := strings.Split(line, "#")
 	cronjob := slices[0]
-	name := uuid.NewV4().String()
+	name := uuid.Must(uuid.NewV4()).String()
 	if len(slices) > 1 {
 		config, err := parseNameYaml(slices[1])
 		if err == nil {
